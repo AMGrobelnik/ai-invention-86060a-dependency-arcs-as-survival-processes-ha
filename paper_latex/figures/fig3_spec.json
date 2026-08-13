@@ -1,0 +1,57 @@
+{
+  "type": "forest",
+  "null_line": 0.0,
+  "title": "Family-Level Residual Hazard with Bootstrap Confidence Intervals",
+  "xlabel": "Residual Nelson-Aalen Cumulative Hazard (h₁₀)",
+  "aspect": "16:9",
+  "xlim": [-1.0, 5.5],
+  "categories": [
+    "Romance",
+    "Slavic",
+    "Germanic",
+    "Italic",
+    "Indo-Aryan",
+    "Sino-Tibetan",
+    "Afro-Asiatic",
+    "Austronesian",
+    "Oto-Manguean",
+    "Tai-Kadai",
+    "Trans-New Guinea",
+    "NW-Caucasian",
+    "Unclassified"
+  ],
+  "series": [
+    {
+      "values": [
+        -0.48,
+        -0.20,
+        -0.05,
+        0.02,
+        0.08,
+        0.12,
+        0.15,
+        0.22,
+        0.28,
+        0.35,
+        0.40,
+        3.6,
+        4.3
+      ],
+      "errors": [
+        0.02,
+        0.01,
+        0.15,
+        0.18,
+        0.35,
+        0.38,
+        0.32,
+        0.45,
+        0.50,
+        0.48,
+        0.52,
+        0.475,
+        0.65
+      ]
+    }
+  ]
+}

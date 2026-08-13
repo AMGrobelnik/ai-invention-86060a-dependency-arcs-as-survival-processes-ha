@@ -1,0 +1,91 @@
+\begin{thebibliography}{11}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Dryer(2013)]{Dryer2013}
+Matthew~S. Dryer.
+\newblock Order of subject, object and verb.
+\newblock In Matthew~S. Dryer and Martin Haspelmath, editors, \emph{The World
+  Atlas of Language Structures Online}. Max Planck Institute for Evolutionary
+  Anthropology, Leipzig, 2013.
+\newblock \doi{10.5281/zenodo.7385533}.
+
+\bibitem[{Ferrer-i-Cancho} and Liu(2013)]{FerreriCancho2013}
+R.~{Ferrer-i-Cancho} and Haitao Liu.
+\newblock The risks of mixing dependency lengths from sequences of different
+  length.
+\newblock \emph{Glottotheory}, 5:\penalty0 143--155, 2013.
+\newblock \doi{10.1515/glot-2014-0014}.
+
+\bibitem[Futrell et~al.(2015)Futrell, Mahowald, and Gibson]{Futrell2015}
+Richard Futrell, Kyle Mahowald, and E.~Gibson.
+\newblock Large-scale evidence of dependency length minimization in 37
+  languages.
+\newblock \emph{Proceedings of the National Academy of Sciences}, 112\penalty0
+  (33):\penalty0 10336--10341, 2015.
+\newblock \doi{10.1073/pnas.1502134112}.
+
+\bibitem[Gerdes(2026)]{Gerdes2026}
+Kim Gerdes.
+\newblock The grammar does the work: Functional vs. lexical dependency length
+  minimization across the ud languages.
+\newblock In \emph{Proceedings of the Language Resources and Evaluation
+  Conference}, 2026.
+\newblock \doi{10.63317/4akqrtsv7i65}.
+
+\bibitem[Jaeger(2010)]{Jaeger2010}
+T.~Florian Jaeger.
+\newblock Redundancy and reduction: Speakers manage syntactic information
+  density.
+\newblock \emph{Cognitive Psychology}, 61:\penalty0 23--62, 2010.
+\newblock \doi{10.1016/j.cogpsych.2010.02.002}.
+
+\bibitem[Liu(2020)]{Liu2020}
+Zoey Liu.
+\newblock Mixed evidence for crosslinguistic dependency length minimization.
+\newblock \emph{STUF -- Language Typology and Universals}, 73\penalty0
+  (4):\penalty0 605--633, 2020.
+\newblock \doi{10.1515/stuf-2020-1020}.
+
+\bibitem[Nivre et~al.(2020)Nivre, de~Marneffe, Ginter, Haji{\v{c}}, Manning,
+  Pyysalo, Schuster, Tyers, and Zeman]{Nivre2020}
+Joakim Nivre, Marie-Catherine de~Marneffe, Filip Ginter, Jan Haji{\v{c}},
+  Christopher~D. Manning, Sampo Pyysalo, Sebastian Schuster, Francis~M. Tyers,
+  and Daniel Zeman.
+\newblock Universal dependencies v2: An evergrowing multilingual treebank
+  collection.
+\newblock In \emph{Proceedings of the 12th Language Resources and Evaluation
+  Conference (LREC)}, pages 4034--4043, 2020.
+
+\bibitem[Temperley(2007)]{Temperley2007}
+D.~Temperley.
+\newblock Minimization of dependency length in written {English}.
+\newblock \emph{Cognition}, 105\penalty0 (2):\penalty0 300--333, 2007.
+\newblock \doi{10.1016/j.cognition.2006.09.011}.
+
+\bibitem[Temperley(2008)]{Temperley2008}
+D.~Temperley.
+\newblock Dependency-length minimization in natural and artificial languages.
+\newblock \emph{Journal of Quantitative Linguistics}, 15\penalty0 (3):\penalty0
+  256--282, 2008.
+\newblock \doi{10.1080/09296170802159512}.
+
+\bibitem[Yadav et~al.(2022)Yadav, Mittal, and Husain]{Yadav2022}
+Himanshu Yadav, Shubham Mittal, and Samar Husain.
+\newblock A reappraisal of dependency length minimization as a linguistic
+  universal.
+\newblock \emph{Open Mind}, 6:\penalty0 147--168, 2022.
+\newblock \doi{10.1162/opmi_a_00060}.
+
+\bibitem[Yu et~al.(2019)Yu, Falenska, and Kuhn]{Yu2019}
+Xiang Yu, Agnieszka Falenska, and Jonas Kuhn.
+\newblock Dependency length minimization vs. word order constraints: An
+  empirical study on 55 treebanks.
+\newblock In \emph{Proceedings of the First Workshop on Quantitative Syntax
+  (Quasy, SyntaxFest 2019)}, 2019.
+\newblock \doi{10.18653/v1/W19-7911}.
+
+\end{thebibliography}
