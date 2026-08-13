@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "evaluation_name": "dependency_hazard_model_robustness_validation",
+    "description": "Four-block validation of iter-1 survival-hazard reframing: (1) effect-size standardization, (2) data-provenance, (3) cross-checks, (4) methodological transparency",
+    "block1_effect_size_standardization": {
+      "beta_register": 0.04562917268133863,
+      "hazard_ratio": 1.0466861991449044,
+      "pooled_median_arc_length_tokens": 1.846717019893357,
+      "register_coefficient_tokens": 0.08237062705657183,
+      "register_coefficient_percentile": 25.0,
+      "interpretation": "The register effect of 0.046 (HR=1.047) corresponds to a 0.082-token reduction in median arc length at the pooled corpus median (1.85 tokens), placing it at the 25th percentile of cross-language contrasts."
+    }
+  },
+  "metrics_agg": {
+    "register_coefficient_tokens": 0.08237062705657183,
+    "register_coefficient_percentile": 25.0,
+    "hazard_ratio_register": 1.0466861991449044,
+    "iter1_full_corpus_register_coef": 0.04562917268133863,
+    "gold_subset_register_coef": 0.11225564136829753,
+    "iter1_vs_gold_subset_pct_delta": 146.01726214117338,
+    "functional_register_coef": 0.02680729704410893,
+    "lexical_register_coef": 0.12155721182980143,
+    "robustness_pooled_variance_ratio": 1.308197828193254,
+    "label_noise_0pct_coef": 0.01119024265540771,
+    "label_noise_5pct_coef": 0.007459178642586277,
+    "label_noise_10pct_coef": 0.012717724919618067,
+    "label_noise_20pct_coef": 0.00540286693317198,
+    "n_provenance_statistics_documented": 22,
+    "bootstrap_n_replicates": 500,
+    "n_resample_repeats": 30,
+    "runtime_seconds": 64.21848464012146
+  },
+  "treebank_arc_counts": {
+    "en_childes": 47012,
+    "en_ewt": 93027,
+    "fr_gsd": 115251,
+    "fr_rhapsodie": 41025,
+    "it_isdt": 81738,
+    "it_kiparlaforest": 16459,
+    "sl_ssj": 105847,
+    "sl_sst": 63348,
+    "uk_iu": 75754,
+    "uk_parlamint": 64599
+  },
+  "robustness_by_language": {
+    "en": {
+      "n_repeats": 30,
+      "cox_coef_sd": 0.005403799409832227,
+      "mdd_ratio_sd": 0.00420285596650688,
+      "variance_ratio": 0.7777594332720368,
+      "cox_coef_mean": 0.20191769546735835,
+      "mdd_ratio_mean": 0.6687479740823731
+    },
+    "fr": {
+      "n_repeats": 30,
+      "cox_coef_sd": 0.004990530279176379,
+      "mdd_ratio_sd": 0.007761659842895802,
+      "variance_ratio": 1.555277577471539,
+      "cox_coef_mean": -0.0324402094491517,
+      "mdd_ratio_mean": 0.989535326968916
+    },
+    "it": {
+      "n_repeats": 30,
+      "cox_coef_sd": 0.00620083867687403,
+      "mdd_ratio_sd": 0.007155555880109635,
+      "variance_ratio": 1.1539658186555013,
+      "cox_coef_mean": 0.09909655042111867,
+      "mdd_ratio_mean": 0.7186237053294401
+    },
+    "uk": {
+      "n_repeats": 30,
+      "cox_coef_sd": 0.005155182706996333,
+      "mdd_ratio_sd": 0.008999858599562689,
+      "variance_ratio": 1.7457884833739394,
+      "cox_coef_mean": 0.01099371970181908,
+      "mdd_ratio_mean": 0.9767280565335478
+    }
+  },
+  "label_noise_sensitivity": {
+    "0pct_flip": {
+      "coef": 0.01119024265540771,
+      "ci_lower": 0.003571330863880752,
+      "ci_upper": 0.018809154446934668,
+      "p": 0.003993327480158677,
+      "n": 258309
+    },
+    "5pct_flip": {
+      "coef": 0.007459178642586277,
+      "ci_lower": -0.00011807831349604312,
+      "ci_upper": 0.015036435598668598,
+      "p": 0.05367857291534252,
+      "n": 258309
+    },
+    "10pct_flip": {
+      "coef": 0.012717724919618067,
+      "ci_lower": 0.005172379548616152,
+      "ci_upper": 0.02026307029061998,
+      "p": 0.0009547539157145836,
+      "n": 258309
+    },
+    "20pct_flip": {
+      "coef": 0.00540286693317198,
+      "ci_lower": -0.002087502301842876,
+      "ci_upper": 0.012893236168186835,
+      "p": 0.15743864828621593,
+      "n": 258309
+    }
+  },
+  "gold_label_pairs": {
+    "en": {
+      "spoken_treebank": "en_childes",
+      "written_treebank": "en_ewt",
+      "citation": "MacWhinney CHILDES corpus vs EWT"
+    },
+    "fr": {
+      "spoken_treebank": "fr_rhapsodie",
+      "written_treebank": "fr_gsd",
+      "citation": "Rhapsodie vs GSD"
+    },
+    "sl": {
+      "spoken_treebank": "sl_sst",
+      "written_treebank": "sl_ssj",
+      "citation": "SST vs SSJ"
+    }
+  }
+}
