@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "source": "commul/universal_dependencies (HF), Grambank CLDF (GitHub grambank/grambank), Glottolog CLDF (GitHub glottolog/glottolog-cldf)",
+    "description": "Dependency-arc-level records with survival-analysis censoring bounds, register, family, and typology covariates, from a 28-treebank curated sample of commul/universal_dependencies spanning spoken/writ..."
+  },
+  "datasets": [
+    {
+      "dataset": "ud_arcs_curated",
+      "examples": [
+        {
+          "input": "{\"treebank_id\": \"wo_wtb\", \"sentence_id\": \"wo_wtb-ud-train_720\", \"token_id\": 30, \"sentence_length\": 38, \"censoring_bound\": 30, \"register\": \"written\", \"language_code\": \"wol\", \"family_id\": \"atla1278\", \"w...",
+          "output": "5",
+          "metadata_treebank_id": "wo_wtb",
+          "metadata_sentence_id": "wo_wtb-ud-train_720",
+          "metadata_token_id": 30,
+          "metadata_head_id": 35,
+          "metadata_deprel": "punct",
+          "metadata_censoring_bound": 30,
+          "metadata_register": "written",
+          "metadata_language_code": "wol",
+          "metadata_language_name": "Wolof",
+          "metadata_family_id": "atla1278",
+          "metadata_family_path": "atla1278",
+          "metadata_word_order_type": "verb-medial",
+          "metadata_morph_richness_proxy": 0.2135,
+          "metadata_morph_richness_data_source": "UD_proxy",
+          "metadata_word_order_data_source": "Grambank",
+          "metadata_sentence_length": 38
+        },
+        {
+          "input": "{\"treebank_id\": \"ta_ttb\", \"sentence_id\": \"train-s250\", \"token_id\": 9, \"sentence_length\": 39, \"censoring_bound\": 30, \"register\": \"written\", \"language_code\": \"tam\", \"family_id\": \"drav1251\", \"word_order_...",
+          "output": "1",
+          "metadata_treebank_id": "ta_ttb",
+          "metadata_sentence_id": "train-s250",
+          "metadata_token_id": 9,
+          "metadata_head_id": 10,
+          "metadata_deprel": "nmod",
+          "metadata_censoring_bound": 30,
+          "metadata_register": "written",
+          "metadata_language_code": "tam",
+          "metadata_language_name": "Tamil",
+          "metadata_family_id": "drav1251",
+          "metadata_family_path": "drav1251",
+          "metadata_word_order_type": "verb-final",
+          "metadata_morph_richness_proxy": 0.4142,
+          "metadata_morph_richness_data_source": "UD_proxy",
+          "metadata_word_order_data_source": "Grambank",
+          "metadata_sentence_length": 39
+        },
+        {
+          "input": "{\"treebank_id\": \"en_gum\", \"sentence_id\": \"GUM_court_mitigation-30\", \"token_id\": 30, \"sentence_length\": 55, \"censoring_bound\": 30, \"register\": \"spoken\", \"language_code\": \"eng\", \"family_id\": \"indo1319\",...",
+          "output": "1",
+          "metadata_treebank_id": "en_gum",
+          "metadata_sentence_id": "GUM_court_mitigation-30",
+          "metadata_token_id": 30,
+          "metadata_head_id": 29,
+          "metadata_deprel": "fixed",
+          "metadata_censoring_bound": 30,
+          "metadata_register": "spoken",
+          "metadata_language_code": "eng",
+          "metadata_language_name": "English",
+          "metadata_family_id": "indo1319",
+          "metadata_family_path": "indo1319",
+          "metadata_word_order_type": "verb-medial",
+          "metadata_morph_richness_proxy": 0.1711,
+          "metadata_morph_richness_data_source": "UD_proxy",
+          "metadata_word_order_data_source": "Grambank",
+          "metadata_sentence_length": 55
+        }
+      ]
+    }
+  ]
+}

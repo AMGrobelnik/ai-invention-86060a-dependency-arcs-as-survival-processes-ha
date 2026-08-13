@@ -1,0 +1,87 @@
+{
+  "metadata": {
+    "method_name": "cox_survival_vs_censoring_naive_logistic_UD_dependency_arcs",
+    "description": "Survival analysis (Cox PH, censoring-aware) vs. baseline (logistic regression, censoring-naive) of UD dependency-arc lengths, testing spoken-register minimization, family-level outliers via bootstrap+...",
+    "n_bootstrap_reps": 500,
+    "elapsed_seconds": 169.64326739311218
+  },
+  "datasets": [
+    {
+      "dataset": "ud_dependency_survival_analysis",
+      "examples": [
+        {
+          "input": "Primary Cox PH fit on gold-labeled spoken/written subset (en_childes/en_ewt, fr_rhapsodie/fr_gsd, sl_sst/sl_ssj): does spoken register reduce dependency-arc hazard (i.e. shorten arcs) relative to writ...",
+          "output": "register_spoken beta=-0.032085223918739636, HR=0.9684240456700357, p=0.36578858015166105",
+          "predict_cox_survival": "register_spoken beta=-0.032085223918739636, HR=0.9684240456700357, p=0.36578858015166105",
+          "metadata_analysis_type": "primary_cox_fit",
+          "metadata_full_result": {
+            "label": "primary_cox_gold_subset_language_clustered",
+            "convergence": "success",
+            "n_obs": 25710,
+            "n_events": 24946,
+            "concordance": 0.5189982044559068,
+            "log_likelihood": -228939.2096203756,
+            "coefficients": {
+              "register_spoken": {
+                "beta": -0.032085223918739636,
+                "se": 0.03547719456377243,
+                "hazard_ratio": 0.9684240456700357,
+                "ci_lower": -0.10161924753625379,
+                "ci_upper": 0.037448799698774515,
+                "p_value": 0.36578858015166105
+              },
+              "morph_richness_std": {
+                "beta": -0.08199051992173975,
+                "se": 0.010866338491608979,
+                "hazard_ratio": 0.9212806924680144,
+                "ci_lower": -0.10328815200911465,
+                "ci_upper": -0.060692887834364856,
+                "p_value": 4.510130179235484e-14
+              }
+            },
+            "subset": "gold_labeled",
+            "n_spoken": 12855,
+            "n_written": 12855,
+            "morph_richness_standardization": {
+              "mean": 0.1972734966938934,
+              "std": 0.0975075754351239
+            },
+            "frailty_note": "gold subset is 100% Indo-European (single family) in this sampled dataset; robust cluster-by-language_code SEs used in place of shared frailty by family (Fallback B1)"
+          }
+        },
+        {
+          "input": "Coefficient 'register_spoken' from primary_cox_gold_subset (gold-labeled spoken/written subset, language-clustered SEs).",
+          "output": "beta=-0.032085223918739636, se=0.03547719456377243, p=0.36578858015166105, ci=[-0.10161924753625379,0.037448799698774515]",
+          "predict_cox_survival": "beta=-0.032085223918739636, se=0.03547719456377243, p=0.36578858015166105, ci=[-0.10161924753625379,0.037448799698774515]",
+          "metadata_analysis_type": "model_coefficient",
+          "metadata_model_label": "primary_cox_gold_subset",
+          "metadata_coefficient_name": "register_spoken",
+          "metadata_full_result": {
+            "beta": -0.032085223918739636,
+            "se": 0.03547719456377243,
+            "hazard_ratio": 0.9684240456700357,
+            "ci_lower": -0.10161924753625379,
+            "ci_upper": 0.037448799698774515,
+            "p_value": 0.36578858015166105
+          }
+        },
+        {
+          "input": "Coefficient 'morph_richness_std' from primary_cox_gold_subset (gold-labeled spoken/written subset, language-clustered SEs).",
+          "output": "beta=-0.08199051992173975, se=0.010866338491608979, p=4.510130179235484e-14, ci=[-0.10328815200911465,-0.060692887834364856]",
+          "predict_cox_survival": "beta=-0.08199051992173975, se=0.010866338491608979, p=4.510130179235484e-14, ci=[-0.10328815200911465,-0.060692887834364856]",
+          "metadata_analysis_type": "model_coefficient",
+          "metadata_model_label": "primary_cox_gold_subset",
+          "metadata_coefficient_name": "morph_richness_std",
+          "metadata_full_result": {
+            "beta": -0.08199051992173975,
+            "se": 0.010866338491608979,
+            "hazard_ratio": 0.9212806924680144,
+            "ci_lower": -0.10328815200911465,
+            "ci_upper": -0.060692887834364856,
+            "p_value": 4.510130179235484e-14
+          }
+        }
+      ]
+    }
+  ]
+}

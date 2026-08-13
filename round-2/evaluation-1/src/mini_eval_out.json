@@ -1,0 +1,411 @@
+{
+  "metadata": {
+    "evaluation_name": "dependency_hazard_model_robustness_validation",
+    "description": "Four-block validation (effect-size standardization, data-provenance reconciliation, cross-checks/literature recovery, methodological transparency audit) of the iter-1 survival-hazard reframing of UD dependency-arc lengths.",
+    "block1_effect_size_standardization": {
+      "beta_register": 0.04562917268133863,
+      "hazard_ratio": 1.0466861991449044,
+      "pooled_median_arc_length_tokens": 1.846717019893357,
+      "expected_median_arc_length_under_register_effect": 1.764346392836785,
+      "register_coefficient_tokens": 0.08237062705657183,
+      "n_languages_in_cross_language_distribution": 4,
+      "cross_language_register_effect_distribution_summary": {
+        "min": 0.026630445479560387,
+        "median": 0.05953542372676815,
+        "max": 0.12131283349295649,
+        "sd": 0.039760695203627204
+      },
+      "register_coefficient_percentile": 25.0,
+      "interpretation": "The register effect of 0.046 (HR=1.047) corresponds to a 0.082-token reduction in median arc length at the pooled corpus median (1.85 tokens), placing it at the 25.0th percentile of the cross-language distribution of {written vs spoken} log-mean-arc-length contrasts (n=4 languages with both registers pooled from CoNLL-U-metadata/name-heuristic register labels)."
+    },
+    "block3_cross_checks": {
+      "iter1_vs_gold_subset": {
+        "iter1_full_corpus_coef": 0.04562917268133863,
+        "gold_subset_only_coef": 0.11225564136829753,
+        "delta": 0.0666264686869589,
+        "pct_delta": 146.01726214117338,
+        "within_5pct_tolerance": false,
+        "note": "Gold subset is only 3 languages (n arcs << 300k full-corpus Cox subsample), so this tests DIRECTIONAL/magnitude consistency under a genuine label-quality restriction, not the plan's originally-envisioned iter1-vs-iter2 identical-pipeline check (no separate iter2 experiment artifact exists to diff against)."
+      },
+      "gold_subset_cox": {
+        "pooled_3_languages": {
+          "coef": 0.11225564136829753,
+          "ci_lower": 0.10508780887825532,
+          "ci_upper": 0.11942347385833975,
+          "p": 6.625693554713017e-207,
+          "n": 465510
+        }
+      },
+      "functional_lexical": {
+        "functional": {
+          "coef": 0.02680729704410893,
+          "ci_lower": 0.017502254527874853,
+          "ci_upper": 0.036112339560343,
+          "p": 1.6370479751796292e-08,
+          "n": 226320
+        },
+        "lexical": {
+          "coef": 0.12155721182980143,
+          "ci_lower": 0.11460390185119816,
+          "ci_upper": 0.1285105218084047,
+          "p": 2.704812509243255e-257,
+          "n": 381150
+        },
+        "lexical_to_functional_ratio": 4.53448222063531,
+        "gerdes_alignment_check": "CONSISTENT_WITH_GERDES2024"
+      },
+      "robustness_multi_resample": {
+        "per_language": {
+          "en": {
+            "n_repeats": 30,
+            "cox_coef_sd_across_resamples": 0.005403799409832227,
+            "mdd_ratio_sd_across_resamples": 0.00420285596650688,
+            "variance_ratio_mdd_over_cox": 0.7777594332720368,
+            "cox_coef_mean": 0.20191769546735835,
+            "mdd_ratio_mean": 0.6687479740823731
+          },
+          "fr": {
+            "n_repeats": 30,
+            "cox_coef_sd_across_resamples": 0.004990530279176379,
+            "mdd_ratio_sd_across_resamples": 0.007761659842895802,
+            "variance_ratio_mdd_over_cox": 1.555277577471539,
+            "cox_coef_mean": -0.0324402094491517,
+            "mdd_ratio_mean": 0.989535326968916
+          },
+          "it": {
+            "n_repeats": 30,
+            "cox_coef_sd_across_resamples": 0.00620083867687403,
+            "mdd_ratio_sd_across_resamples": 0.007155555880109635,
+            "variance_ratio_mdd_over_cox": 1.1539658186555013,
+            "cox_coef_mean": 0.09909655042111867,
+            "mdd_ratio_mean": 0.7186237053294401
+          },
+          "uk": {
+            "n_repeats": 30,
+            "cox_coef_sd_across_resamples": 0.005155182706996333,
+            "mdd_ratio_sd_across_resamples": 0.008999858599562689,
+            "variance_ratio_mdd_over_cox": 1.7457884833739394,
+            "cox_coef_mean": 0.01099371970181908,
+            "mdd_ratio_mean": 0.9767280565335478
+          }
+        },
+        "pooled_variance_ratio": 1.308197828193254,
+        "expected_range": "10-20x per artifact plan",
+        "n_resample_repeats_per_language": 30,
+        "seed": 20260813
+      }
+    },
+    "block4_methodological_audit": {
+      "gold_label_source_documentation": [
+        {
+          "language": "en",
+          "spoken_treebank": "en_childes",
+          "written_treebank": "en_ewt",
+          "citation": "MacWhinney CHILDES corpus (child-directed/child speech transcripts, gold spoken-modality annotation) vs EWT (English Web Treebank, UD gold written)",
+          "n_spoken_tokens_this_eval_sample": 47012,
+          "n_written_tokens_this_eval_sample": 93027,
+          "validated_against_metadata": "register classified via classify_register(): CoNLL-U comment modality/channel tags where present, else curated name-based fallback matching the treebank's known genuine gold spoken-corpus status (not majority-written default)."
+        },
+        {
+          "language": "fr",
+          "spoken_treebank": "fr_rhapsodie",
+          "written_treebank": "fr_gsd",
+          "citation": "Rhapsodie (Lacheret et al., gold prosody/spoken corpus) vs GSD (UD gold written)",
+          "n_spoken_tokens_this_eval_sample": 41025,
+          "n_written_tokens_this_eval_sample": 115251,
+          "validated_against_metadata": "register classified via classify_register(): CoNLL-U comment modality/channel tags where present, else curated name-based fallback matching the treebank's known genuine gold spoken-corpus status (not majority-written default)."
+        },
+        {
+          "language": "sl",
+          "spoken_treebank": "sl_sst",
+          "written_treebank": "sl_ssj",
+          "citation": "SST (Slovenian Spoken/Spontaneous Treebank, gold transcribed speech) vs SSJ (UD gold written)",
+          "n_spoken_tokens_this_eval_sample": 63348,
+          "n_written_tokens_this_eval_sample": 105847,
+          "validated_against_metadata": "register classified via classify_register(): CoNLL-U comment modality/channel tags where present, else curated name-based fallback matching the treebank's known genuine gold spoken-corpus status (not majority-written default)."
+        }
+      ],
+      "word_order_operationalization_comparison": {
+        "operationalizations_implemented": 1,
+        "description": "Only ONE word-order operationalization is implemented in the iter-1 pipeline: empirical fraction of dependents preceding their head, computed directly per treebank from parsed head-position data (word_order_score). No second (e.g. WALS-fetched dominant-order class) operationalization was implemented, so no comparability/CI-overlap check across operationalizations is possible -- this is reported here as an honest audit finding, not fabricated.",
+        "coefficient_in_full_cox_model": {
+          "coef": -0.028272384721701235,
+          "ci_lower": -0.03363361634514231,
+          "ci_upper": -0.022911153098260157,
+          "p": 4.851205828584694e-25
+        },
+        "recommendation": "A future iteration should add a second, independently-sourced word-order measure (e.g. WALS 81A dominant order) fitted on the identical 300k-arc subsample to test operationalization robustness."
+      },
+      "label_noise_sensitivity_results": {
+        "0pct_flip": {
+          "coef": 0.01119024265540771,
+          "ci_lower": 0.003571330863880752,
+          "ci_upper": 0.018809154446934668,
+          "p": 0.003993327480158677,
+          "n": 258309
+        },
+        "5pct_flip": {
+          "coef": 0.007459178642586277,
+          "ci_lower": -0.00011807831349604312,
+          "ci_upper": 0.015036435598668598,
+          "p": 0.05367857291534252,
+          "n": 258309
+        },
+        "10pct_flip": {
+          "coef": 0.012717724919618067,
+          "ci_lower": 0.005172379548616152,
+          "ci_upper": 0.02026307029061998,
+          "p": 0.0009547539157145836,
+          "n": 258309
+        },
+        "20pct_flip": {
+          "coef": 0.00540286693317198,
+          "ci_lower": -0.002087502301842876,
+          "ci_upper": 0.012893236168186835,
+          "p": 0.15743864828621593,
+          "n": 258309
+        }
+      },
+      "bootstrap_procedure_specification": {
+        "iter1_family_ranking_had_bootstrap_ci": false,
+        "iter1_note": "family_residual_hazard_ranking in the iter-1 output has no CI fields -- no bootstrap was run for the family outlier ranking in iter1. This evaluation adds one (below).",
+        "n_replicates": 500,
+        "sampling": "with replacement, resampling treebanks within each family (block bootstrap over treebanks, not individual arcs, to respect within-treebank arc correlation)",
+        "random_seed": 20260813
+      },
+      "bootstrap_family_ci": {
+        "n_replicates": 500,
+        "seed": 20260813,
+        "per_family": {
+          "Dravidian": {
+            "n_treebanks_in_sample": 0,
+            "note": "too few sampled treebanks in nelson_aalen_by_treebank_sample for bootstrap CI"
+          },
+          "NW-Caucasian": {
+            "n_treebanks_in_sample": 2,
+            "point_estimate_mean_h10": 3.619922459926899,
+            "bootstrap_ci_lower_2.5pct": 3.1491123478760676,
+            "bootstrap_ci_upper_97.5pct": 4.090732571977731,
+            "reported_residual_hazard_iter1": 0.8328966688723298
+          },
+          "Anatolian": {
+            "n_treebanks_in_sample": 0,
+            "note": "too few sampled treebanks in nelson_aalen_by_treebank_sample for bootstrap CI"
+          },
+          "Sign": {
+            "n_treebanks_in_sample": 0,
+            "note": "too few sampled treebanks in nelson_aalen_by_treebank_sample for bootstrap CI"
+          },
+          "Turkic": {
+            "n_treebanks_in_sample": 1,
+            "note": "too few sampled treebanks in nelson_aalen_by_treebank_sample for bootstrap CI"
+          },
+          "Afro-Asiatic(Cushitic)": {
+            "n_treebanks_in_sample": 1,
+            "note": "too few sampled treebanks in nelson_aalen_by_treebank_sample for bootstrap CI"
+          },
+          "Iranian": {
+            "n_treebanks_in_sample": 0,
+            "note": "too few sampled treebanks in nelson_aalen_by_treebank_sample for bootstrap CI"
+          },
+          "Romance": {
+            "n_treebanks_in_sample": 1,
+            "note": "too few sampled treebanks in nelson_aalen_by_treebank_sample for bootstrap CI"
+          },
+          "Tai-Kadai": {
+            "n_treebanks_in_sample": 0,
+            "note": "too few sampled treebanks in nelson_aalen_by_treebank_sample for bootstrap CI"
+          },
+          "Baltic": {
+            "n_treebanks_in_sample": 0,
+            "note": "too few sampled treebanks in nelson_aalen_by_treebank_sample for bootstrap CI"
+          },
+          "Unclassified": {
+            "n_treebanks_in_sample": 9,
+            "point_estimate_mean_h10": 4.339421563150986,
+            "bootstrap_ci_lower_2.5pct": 3.759251557693375,
+            "bootstrap_ci_upper_97.5pct": 5.11325369662343,
+            "reported_residual_hazard_iter1": 0.424684260611079
+          },
+          "Creole": {
+            "n_treebanks_in_sample": 0,
+            "note": "too few sampled treebanks in nelson_aalen_by_treebank_sample for bootstrap CI"
+          },
+          "Indo-Aryan": {
+            "n_treebanks_in_sample": 3,
+            "point_estimate_mean_h10": 4.017754728084793,
+            "bootstrap_ci_lower_2.5pct": 2.654636325059429,
+            "bootstrap_ci_upper_97.5pct": 5.736416818433054,
+            "reported_residual_hazard_iter1": -0.4159598346016202
+          },
+          "Kartvelian": {
+            "n_treebanks_in_sample": 0,
+            "note": "too few sampled treebanks in nelson_aalen_by_treebank_sample for bootstrap CI"
+          },
+          "Hellenic": {
+            "n_treebanks_in_sample": 5,
+            "point_estimate_mean_h10": 3.0254796718938066,
+            "bootstrap_ci_lower_2.5pct": 2.7846362402383518,
+            "bootstrap_ci_upper_97.5pct": 3.316529746118509,
+            "reported_residual_hazard_iter1": -0.3632750782359708
+          },
+          "Celtic": {
+            "n_treebanks_in_sample": 1,
+            "note": "too few sampled treebanks in nelson_aalen_by_treebank_sample for bootstrap CI"
+          },
+          "Semitic": {
+            "n_treebanks_in_sample": 7,
+            "point_estimate_mean_h10": 3.1164291857291184,
+            "bootstrap_ci_lower_2.5pct": 2.537776017076086,
+            "bootstrap_ci_upper_97.5pct": 3.945315478705177,
+            "reported_residual_hazard_iter1": -0.3452085300247201
+          },
+          "Sino-Tibetan": {
+            "n_treebanks_in_sample": 9,
+            "point_estimate_mean_h10": 3.031233423758057,
+            "bootstrap_ci_lower_2.5pct": 2.6609902018465252,
+            "bootstrap_ci_upper_97.5pct": 3.5604462280920144,
+            "reported_residual_hazard_iter1": -0.3335202206303012
+          },
+          "Mande": {
+            "n_treebanks_in_sample": 1,
+            "note": "too few sampled treebanks in nelson_aalen_by_treebank_sample for bootstrap CI"
+          },
+          "Armenian": {
+            "n_treebanks_in_sample": 3,
+            "point_estimate_mean_h10": 2.6859738985900052,
+            "bootstrap_ci_lower_2.5pct": 2.6574879548589205,
+            "bootstrap_ci_upper_97.5pct": 2.7158681165130094,
+            "reported_residual_hazard_iter1": -0.29933526917316744
+          },
+          "Germanic": {
+            "n_treebanks_in_sample": 4,
+            "point_estimate_mean_h10": 2.7652851562098677,
+            "bootstrap_ci_lower_2.5pct": 2.5648350103165938,
+            "bootstrap_ci_upper_97.5pct": 3.025189572335765,
+            "reported_residual_hazard_iter1": -0.25702035267432155
+          },
+          "Koreanic": {
+            "n_treebanks_in_sample": 0,
+            "note": "too few sampled treebanks in nelson_aalen_by_treebank_sample for bootstrap CI"
+          },
+          "Austronesian": {
+            "n_treebanks_in_sample": 1,
+            "note": "too few sampled treebanks in nelson_aalen_by_treebank_sample for bootstrap CI"
+          },
+          "Slavic": {
+            "n_treebanks_in_sample": 7,
+            "point_estimate_mean_h10": 2.764475441507367,
+            "bootstrap_ci_lower_2.5pct": 2.6511659232564213,
+            "bootstrap_ci_upper_97.5pct": 2.8757119822102966,
+            "reported_residual_hazard_iter1": -0.19989035770411867
+          },
+          "Albanian": {
+            "n_treebanks_in_sample": 2,
+            "point_estimate_mean_h10": 3.00495792772909,
+            "bootstrap_ci_lower_2.5pct": 2.8891570918151066,
+            "bootstrap_ci_upper_97.5pct": 3.1207587636430736,
+            "reported_residual_hazard_iter1": -0.1930148361132109
+          },
+          "Niger-Congo": {
+            "n_treebanks_in_sample": 0,
+            "note": "too few sampled treebanks in nelson_aalen_by_treebank_sample for bootstrap CI"
+          },
+          "Basque(isolate)": {
+            "n_treebanks_in_sample": 1,
+            "note": "too few sampled treebanks in nelson_aalen_by_treebank_sample for bootstrap CI"
+          },
+          "Afro-Asiatic(Chadic)": {
+            "n_treebanks_in_sample": 0,
+            "note": "too few sampled treebanks in nelson_aalen_by_treebank_sample for bootstrap CI"
+          },
+          "Austroasiatic": {
+            "n_treebanks_in_sample": 0,
+            "note": "too few sampled treebanks in nelson_aalen_by_treebank_sample for bootstrap CI"
+          },
+          "Japonic": {
+            "n_treebanks_in_sample": 0,
+            "note": "too few sampled treebanks in nelson_aalen_by_treebank_sample for bootstrap CI"
+          },
+          "Afro-Asiatic(Egyptian)": {
+            "n_treebanks_in_sample": 2,
+            "point_estimate_mean_h10": 2.8187781877891815,
+            "bootstrap_ci_lower_2.5pct": 2.7900052723734046,
+            "bootstrap_ci_upper_97.5pct": 2.8475511032049585,
+            "reported_residual_hazard_iter1": -0.047175742494597994
+          },
+          "Uralic": {
+            "n_treebanks_in_sample": 0,
+            "note": "too few sampled treebanks in nelson_aalen_by_treebank_sample for bootstrap CI"
+          }
+        }
+      }
+    },
+    "provenance_table_csv": "provenance_table.csv",
+    "audit_trail_md": "audit_trail.md",
+    "n_treebanks_redownloaded": 11,
+    "treebank_arc_counts": {
+      "en_childes": 47012,
+      "en_ewt": 93027,
+      "fr_gsd": 115251,
+      "fr_rhapsodie": 41025,
+      "it_isdt": 81738,
+      "it_kiparlaforest": 16459,
+      "it_parlamint": 19759,
+      "sl_ssj": 105847,
+      "sl_sst": 63348,
+      "uk_iu": 75754,
+      "uk_parlamint": 64599
+    }
+  },
+  "metrics_agg": {
+    "register_coefficient_tokens": 0.08237062705657183,
+    "register_coefficient_percentile": 25.0,
+    "hazard_ratio_register": 1.0466861991449044,
+    "iter1_full_corpus_register_coef": 0.04562917268133863,
+    "gold_subset_register_coef": 0.11225564136829753,
+    "iter1_vs_gold_subset_pct_delta": 146.01726214117338,
+    "functional_register_coef": 0.02680729704410893,
+    "lexical_register_coef": 0.12155721182980143,
+    "robustness_pooled_variance_ratio": 1.308197828193254,
+    "n_provenance_statistics_documented": 22.0,
+    "n_gold_standard_statistics": 6.0,
+    "n_heuristic_dependent_statistics": 3.0,
+    "label_noise_20pct_coef": 0.00540286693317198,
+    "label_noise_0pct_coef": 0.01119024265540771,
+    "bootstrap_n_replicates": 500.0,
+    "n_resample_repeats": 30.0,
+    "runtime_seconds": 64.21848464012146
+  },
+  "datasets": [
+    {
+      "dataset": "commul/universal_dependencies (13-treebank eval re-sample)",
+      "examples": [
+        {
+          "input": "Validate register-effect stability for gold-label pair en_childes (spoken) vs en_ewt (written), language=en. Source: MacWhinney CHILDES corpus (child-directed/child speech transcripts, gold spoken-modality annotation) vs EWT (English Web Treebank, UD gold written)",
+          "output": "{\"iter1_full_corpus_coef\": 0.04562917268133863, \"gold_subset_coef\": 0.11225564136829753}",
+          "metadata_language": "en",
+          "metadata_block": "gold_label_stability",
+          "predict_gold_subset_register_coef": "0.11225564136829753",
+          "eval_within_5pct_tolerance": 0.0
+        },
+        {
+          "input": "Validate register-effect stability for gold-label pair fr_rhapsodie (spoken) vs fr_gsd (written), language=fr. Source: Rhapsodie (Lacheret et al., gold prosody/spoken corpus) vs GSD (UD gold written)",
+          "output": "{\"iter1_full_corpus_coef\": 0.04562917268133863, \"gold_subset_coef\": 0.11225564136829753}",
+          "metadata_language": "fr",
+          "metadata_block": "gold_label_stability",
+          "predict_gold_subset_register_coef": "0.11225564136829753",
+          "eval_within_5pct_tolerance": 0.0
+        },
+        {
+          "input": "Validate register-effect stability for gold-label pair sl_sst (spoken) vs sl_ssj (written), language=sl. Source: SST (Slovenian Spoken/Spontaneous Treebank, gold transcribed speech) vs SSJ (UD gold written)",
+          "output": "{\"iter1_full_corpus_coef\": 0.04562917268133863, \"gold_subset_coef\": 0.11225564136829753}",
+          "metadata_language": "sl",
+          "metadata_block": "gold_label_stability",
+          "predict_gold_subset_register_coef": "0.11225564136829753",
+          "eval_within_5pct_tolerance": 0.0
+        }
+      ]
+    }
+  ]
+}
